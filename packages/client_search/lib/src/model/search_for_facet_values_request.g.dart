@@ -17,6 +17,10 @@ SearchForFacetValuesRequest _$SearchForFacetValuesRequestFromJson(
           facetQuery: $checkedConvert('facetQuery', (v) => v as String?),
           maxFacetHits:
               $checkedConvert('maxFacetHits', (v) => (v as num?)?.toInt()),
+          query: $checkedConvert('query', (v) => v as String?),
+          facetFilters: $checkedConvert('facetFilters', (v) => v),
+          facets: $checkedConvert('facets',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
         );
         return val;
       },
@@ -35,5 +39,8 @@ Map<String, dynamic> _$SearchForFacetValuesRequestToJson(
   writeNotNull('params', instance.params);
   writeNotNull('facetQuery', instance.facetQuery);
   writeNotNull('maxFacetHits', instance.maxFacetHits);
+  writeNotNull('query', instance.query);
+  writeNotNull('facetFilters', instance.facetFilters);
+  writeNotNull('facets', instance.facets);
   return val;
 }

@@ -12,6 +12,9 @@ final class SearchForFacetValuesRequest {
     this.params,
     this.facetQuery,
     this.maxFacetHits,
+    this.query,
+    this.facetFilters,
+    this.facets,
   });
 
   /// Search parameters as a URL-encoded query string.
@@ -26,6 +29,21 @@ final class SearchForFacetValuesRequest {
   // maximum: 100
   @JsonKey(name: r'maxFacetHits')
   final int? maxFacetHits;
+
+  /// Search query.
+  @JsonKey(name: r'query')
+  final String? query;
+
+  /// One of types:
+  /// - [List<List<FacetFilters>>]
+  /// - [String]
+  /// - [List<String>]
+  @JsonKey(name: r'facetFilters')
+  final dynamic facetFilters;
+
+  /// Facets for which to retrieve facet values that match the search criteria and the number of matching facet values.  To retrieve all facets, use the wildcard character `*`. For more information, see [facets](https://www.algolia.com/doc/guides/managing-results/refine-results/faceting/#contextual-facet-values-and-counts).
+  @JsonKey(name: r'facets')
+  final List<String>? facets;
 
   @override
   bool operator ==(Object other) =>
